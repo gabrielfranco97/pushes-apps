@@ -1,0 +1,19 @@
+{
+  "name": "weekly-cron-function",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.0.0",
+    "firebase-admin": "^11.0.0",
+    "axios": "^1.6.0",
+    "date-fns-tz": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "typescript": "^4.5.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "functions-framework --target=weeklyJob"
+  }
+}

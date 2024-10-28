@@ -1,0 +1,23 @@
+steps:
+  # Install dependencies
+  - name: 'node:16'
+    entrypoint: npm
+    args: ['install']
+
+  # Build the function
+  - name: 'node:16'
+    entrypoint: npm
+    args: ['run', 'build']
+
+  # Deploy the function
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+      - gcloud
+      - functions
+      - deploy
+      - weeklyJob
+      - --region=us-central1
+      - --runtime=nodejs16
+      - --trigger-http
+      - --entry-point=weeklyJob
+      - --allow-unauthenticated
